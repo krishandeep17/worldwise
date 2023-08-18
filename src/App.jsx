@@ -10,7 +10,7 @@ import {
   Product,
 } from "./pages";
 
-import { City, CityList, CountryList } from "./components";
+import { City, CityList, CountryList, Form } from "./components";
 
 let url;
 
@@ -64,7 +64,7 @@ export default function App() {
             path="countries"
             element={<CountryList cities={cities} isLoading={isLoading} />}
           />
-          <Route path="form" element={<p>Form</p>} />
+          <Route path="form" element={<Form />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

@@ -1,8 +1,8 @@
-import AppLayout from "./AppLayout";
-import HomeScreen from "./HomeScreen";
-import Login from "./Login";
-import PageNotFound from "./PageNotFound";
-import Pricing from "./Pricing";
-import Product from "./Product";
+import AppLayout from "./AppLayout/AppLayout";
+import Homepage from "./HomePage/Homepage";
+import Login from "./Login/Login";
+import PageNotFound from "./PageNotFound/PageNotFound";
+import Pricing from "./Product_Pricing/Pricing";
+import Product from "./Product_Pricing/Product";
 
-export { AppLayout, HomeScreen, Login, PageNotFound, Pricing, Product };
+export { AppLayout, Homepage, Login, PageNotFound, Pricing, Product };

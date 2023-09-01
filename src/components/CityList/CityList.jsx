@@ -1,8 +1,7 @@
 import styles from "./CityList.module.css";
 
-import CityItem from "../CityItem/CityItem";
-import Message from "../Message/Message";
-import Spinner from "../Spinner/Spinner";
+import { CityItem, Message, Spinner } from "../../components";
+
 import { useCities } from "../../contexts/CityContext";
 
 export default function CityList() {

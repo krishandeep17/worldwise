@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./CityItem.module.css";
 
-import Flag from "../Flag/Flag";
+import { Flag } from "../../components";
 
 // Change date format
 const formatDate = (date) =>

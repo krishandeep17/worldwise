@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Form.module.css";
-import Button from "../Button/Button";
+
+import { Button } from "../../components";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode

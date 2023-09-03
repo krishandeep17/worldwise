@@ -10,7 +10,7 @@ import {
 } from "./pages";
 
 import { City, CityList, CountryList, Form } from "./components";
-import { CitiesProvider } from "./contexts/CityContext";
+import { CitiesProvider } from "./contexts/CitiesContext";
 
 export default function App() {
   return (

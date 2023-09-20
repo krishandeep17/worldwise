@@ -1,17 +1,17 @@
 .product {
-  background-color: var(--color-dark--1);
   min-height: 100vh;
   min-height: 100svh;
   padding: 3.2rem 8rem;
+  background-color: var(--color-dark--1);
 }
 
 .product section {
   width: clamp(80rem, 80%, 90rem);
-  margin: 6rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7rem;
   align-items: center;
+  gap: 7rem;
+  margin: 6rem auto;
 }
 
 .product img {
@@ -19,14 +19,14 @@
 }
 
 .product h2 {
+  margin-bottom: 3rem;
   font-size: 4rem;
   line-height: 1.2;
-  margin-bottom: 3rem;
 }
 
 .product p {
-  font-size: 1.6rem;
   margin-bottom: 2rem;
+  font-size: 1.6rem;
 }
 
 .product section a {

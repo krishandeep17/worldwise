@@ -1,8 +1,8 @@
 .mapContainer {
+  position: relative;
   flex: 1;
   height: 100%;
   background-color: var(--color-dark--2);
-  position: relative;
 }
 
 .map {
@@ -18,10 +18,10 @@
 }
 
 :global(.leaflet-popup .leaflet-popup-content) {
-  font-size: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-size: 1.5rem;
 }
 
 :global(.leaflet-popup .leaflet-popup-content span:first-child) {

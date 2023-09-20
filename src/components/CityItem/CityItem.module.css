@@ -2,17 +2,15 @@
 .cityItem:link,
 .cityItem:visited {
   display: flex;
-  gap: 1.6rem;
   align-items: center;
-
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
+  gap: 1.6rem;
   padding: 1rem 2rem;
+  border-radius: 7px;
   border-left: 5px solid var(--color-brand--2);
-  cursor: pointer;
-
   color: inherit;
+  background-color: var(--color-dark--2);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .cityItem--active {
@@ -21,9 +19,9 @@
 }
 
 .name {
+  margin-right: auto;
   font-size: 1.7rem;
   font-weight: 600;
-  margin-right: auto;
 }
 
 .date {
@@ -31,19 +29,19 @@
 }
 
 .deleteBtn {
+  width: 2rem;
   height: 2rem;
-  aspect-ratio: 1;
   border-radius: 50%;
   border: none;
-  background-color: var(--color-dark--1);
   color: var(--color-light--2);
+  background-color: var(--color-dark--1);
   font-size: 1.6rem;
   font-weight: 400;
-  cursor: pointer;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .deleteBtn:hover {
-  background-color: var(--color-brand--1);
   color: var(--color-dark--1);
+  background-color: var(--color-brand--1);
 }

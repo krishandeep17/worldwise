@@ -1,18 +1,18 @@
 .form {
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
-  padding: 2rem 3rem;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
+  padding: 2rem 3rem;
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
 }
 
 .row {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  position: relative;
 }
 
 .buttons {
@@ -22,8 +22,8 @@
 
 .flag {
   position: absolute;
-  right: 1rem;
   top: 2.7rem;
+  right: 1rem;
   font-size: 2.8rem;
 }
 
@@ -39,6 +39,5 @@
 }
 
 :global(.react-datepicker) {
-  font-family: inherit;
   font-size: 1.2rem;
 }

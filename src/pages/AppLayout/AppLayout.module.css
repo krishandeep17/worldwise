@@ -1,7 +1,7 @@
 .app {
+  overscroll-behavior-y: none;
+  position: relative;
+  display: flex;
   height: 100vh;
   height: 100svh;
-  overscroll-behavior-y: none;
-  display: flex;
-  position: relative;
 }

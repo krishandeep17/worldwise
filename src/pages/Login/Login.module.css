@@ -1,18 +1,18 @@
 .login {
-  background-color: var(--color-dark--1);
   min-height: 100vh;
   min-height: 100svh;
   padding: 3.2rem 8rem;
+  background-color: var(--color-dark--1);
 }
 
 .form {
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
-  padding: 2rem 3rem;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%;
+  padding: 2rem 3rem;
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
 
   /* Different from other form */
   width: 48rem;

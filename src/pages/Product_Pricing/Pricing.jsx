@@ -1,6 +1,6 @@
 // Uses the same styles as Product
 import styles from "./Product.module.css";
-
+import cityImg from "../../assets/city.jpg";
 import { PageNav } from "../../components";
 
 export default function Pricing() {
@@ -20,7 +20,7 @@ export default function Pricing() {
             voluptatem iste.
           </p>
         </div>
-        <img src="img-2.jpg" alt="overview of a large city with skyscrapers" />
+        <img src={cityImg} alt="overview of a large city with skyscrapers" />
       </section>
     </main>
   );

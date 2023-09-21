@@ -37,6 +37,7 @@
   background-color: var(--color-dark--1);
   font-size: 1.6rem;
   font-weight: 400;
+  line-height: 1;
   transition: all 0.2s;
   cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+import { City, CityList, CountryList, Form } from "./components";
 import {
   AppLayout,
   Homepage,
@@ -8,8 +9,6 @@ import {
   Pricing,
   Product,
 } from "./pages";
-
-import { City, CityList, CountryList, Form } from "./components";
 import { CitiesProvider } from "./contexts/CitiesContext";
 
 export default function App() {
@@ -18,11 +17,11 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Homepage />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="product" element={<Product />} />
+          <Route path="login" element={<Login />} />
 
-          <Route path="/app" element={<AppLayout />}>
+          <Route path="app" element={<AppLayout />}>
             <Route index element={<Navigate to="cities" replace />} />
             <Route path="cities" element={<CityList />} />
             <Route path="cities/:id" element={<City />} />

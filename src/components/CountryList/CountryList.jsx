@@ -2,10 +2,10 @@ import styles from "./CountryList.module.css";
 
 import { CountryItem, Message, Spinner } from "../../components";
 
-import { useCities } from "../../contexts/CitiesContext";
+import { useCitiesContext } from "../../contexts/CitiesContext";
 
 export default function CountryList() {
-  const { cities, isLoading } = useCities();
+  const { cities, isLoading } = useCitiesContext();
 
   if (isLoading) {
     return <Spinner />;
@@ -17,11 +17,14 @@ export default function CountryList() {
     );
   }
 
-  const countries = cities.reduce((arr, cur) => {
-    if (!arr.map((city) => city.country).includes(cur.country)) {
-      return [...arr, { country: cur.country, emoji: cur.emoji }];
+  const countries = cities.reduce((accumulator, currentCity) => {
+    if (accumulator.map((city) => city.country).includes(currentCity.country)) {
+      return accumulator;
     } else {
-      return arr;
+      return [
+        ...accumulator,
+        { country: currentCity.country, emoji: currentCity.emoji },
+      ];
     }
   }, []);
 

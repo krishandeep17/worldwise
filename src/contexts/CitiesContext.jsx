@@ -1,19 +1,21 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
 
+// CREATE A CONTEXT
 const CitiesContext = createContext();
 
 let url;
 
 if (import.meta.env.VITE_ENV === "production") {
-  url = "https://krishandeep17.github.io/data/cities.json";
+  url = import.meta.env.VITE_SERVER;
 } else {
   url = "http://localhost:8000/cities";
 }
 
-function CitiesProvider({ children }) {
+export function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -50,15 +52,17 @@ function CitiesProvider({ children }) {
   };
 
   return (
+    // PROVIDE VALUE TO THE CHILD COMPONENTS
     <CitiesContext.Provider
-      value={{ cities, isLoading, fetchCity, currentCity }}
+      value={{ cities, currentCity, fetchCity, isLoading }}
     >
       {children}
     </CitiesContext.Provider>
   );
 }
 
-function useCities() {
+// CUSTOM HOOK
+export function useCitiesContext() {
   const context = useContext(CitiesContext);
 
   if (context === undefined)
@@ -66,5 +70,3 @@ function useCities() {
 
   return context;
 }
-
-export { CitiesProvider, useCities };

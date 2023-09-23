@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+import { CitiesProvider } from "./contexts/CitiesContext";
 import { City, CityList, CountryList, Form } from "./components";
 import {
   AppLayout,
@@ -9,7 +10,6 @@ import {
   Pricing,
   Product,
 } from "./pages";
-import { CitiesProvider } from "./contexts/CitiesContext";
 
 export default function App() {
   return (

@@ -1,17 +1,23 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { useCitiesContext } from "../../contexts/CitiesContext";
 import styles from "./City.module.css";
-
-import { useCities } from "../../contexts/CitiesContext";
 import { Button, Flag, Spinner } from "../../components";
-import formatDate from "../../utils/formatDate";
+
+const formatDate = (date) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  }).format(new Date(date));
 
 export default function City() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { isLoading, fetchCity, currentCity } = useCities();
+  const { currentCity, fetchCity, isLoading } = useCitiesContext();
 
   useEffect(() => {
     fetchCity(id);
@@ -26,13 +32,14 @@ export default function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <Flag emoji={emoji} /> {cityName}
+          {emoji ? <Flag emoji={emoji} /> : <span>🚩</span>}
+          {cityName}
         </h3>
       </div>
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date)}</p>
+        <p>{formatDate(date || null)}</p>
       </div>
 
       {notes && (

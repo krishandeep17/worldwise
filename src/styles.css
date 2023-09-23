@@ -1,3 +1,6 @@
+/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+@import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
   --color-brand--1: #ffb545;

@@ -23,7 +23,7 @@
 
 .position {
   position: absolute;
-  z-index: 10;
+  z-index: 1000;
   left: 50%;
   bottom: 4rem;
   color: var(--color-dark--1);

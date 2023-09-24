@@ -23,7 +23,7 @@ export default function CountryList() {
     } else {
       return [
         ...accumulator,
-        { country: currentCity.country, emoji: currentCity.emoji },
+        { country: currentCity.country, countryCode: currentCity.countryCode },
       ];
     }
   }, []);

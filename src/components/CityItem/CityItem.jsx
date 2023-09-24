@@ -14,7 +14,7 @@ const formatDate = (date) =>
 export default function CityItem({ city }) {
   const { currentCity } = useCitiesContext();
 
-  const { emoji, cityName, date, id, position } = city;
+  const { cityName, countryCode, date, id, position } = city;
 
   return (
     <li>
@@ -24,7 +24,7 @@ export default function CityItem({ city }) {
         }`}
         to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       >
-        {emoji ? <Flag emoji={emoji} /> : <span>🚩</span>}
+        <Flag countryCode={countryCode} />
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>({formatDate(date || null)})</time>
         <button className={styles.deleteBtn}>&times;</button>

@@ -23,7 +23,7 @@ export default function City() {
     fetchCity(id);
   }, [id]);
 
-  const { cityName, date, emoji, notes } = currentCity;
+  const { cityName, countryCode, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;
 
@@ -31,10 +31,10 @@ export default function City() {
     <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
-        <h3>
-          {emoji ? <Flag emoji={emoji} /> : <span>🚩</span>}
-          {cityName}
-        </h3>
+        <div className={styles.cityName}>
+          <Flag countryCode={countryCode} />
+          <h3>{cityName}</h3>
+        </div>
       </div>
 
       <div className={styles.row}>

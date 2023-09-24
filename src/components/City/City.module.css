@@ -34,16 +34,14 @@
   text-transform: uppercase;
 }
 
-.city h3 {
+.cityName {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 1.9rem;
 }
 
-.city h3 span {
-  font-size: 3.2rem;
-  line-height: 1;
+.cityName h3 {
+  font-size: 1.9rem;
 }
 
 .city p {

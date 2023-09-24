@@ -5,7 +5,7 @@ import { Flag } from "../../components";
 export default function CountryItem({ country }) {
   return (
     <li className={styles.countryItem}>
-      {country.emoji ? <Flag emoji={country.emoji} /> : <span>🚩</span>}
+      <Flag countryCode={country.countryCode} />
       <span>{country.country}</span>
     </li>
   );

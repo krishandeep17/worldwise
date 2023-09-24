@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MapContainer,
   Marker,
@@ -11,11 +11,13 @@ import {
 
 import { useCitiesContext } from "../../contexts/CitiesContext";
 import { useGeolocation } from "../../hooks/useGeolocation";
+import { useUrlPosition } from "../../hooks/useUrlPosition";
 import styles from "./Map.module.css";
 import { Button, Flag } from "../../components";
 
 export default function Map() {
   const { cities } = useCitiesContext();
+  const [mapLat, mapLng] = useUrlPosition();
   const {
     getPosition,
     isLoading: isLoadingPosition,
@@ -23,10 +25,6 @@ export default function Map() {
   } = useGeolocation();
 
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
-  const [searchParams] = useSearchParams();
-
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
 
   useEffect(() => {
     if (mapLat && mapLng) {
@@ -49,7 +47,7 @@ export default function Map() {
       <MapContainer
         className={styles.map}
         center={mapPosition}
-        zoom={6}
+        zoom={13}
         scrollWheelZoom={true}
       >
         <TileLayer
@@ -62,7 +60,7 @@ export default function Map() {
             position={[city.position.lat, city.position.lng]}
           >
             <Popup>
-              {city.emoji ? <Flag emoji={city.emoji} /> : <span>🚩</span>}
+              <Flag countryCode={city.countryCode} />
               <span>{city.cityName}</span>
             </Popup>
           </Marker>

@@ -9,7 +9,6 @@
 }
 
 .row {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -20,11 +19,14 @@
   justify-content: space-between;
 }
 
+.relative {
+  position: relative;
+}
+
 .flag {
   position: absolute;
-  top: 2.7rem;
-  right: 1rem;
-  font-size: 2.8rem;
+  top: 1rem;
+  right: 1.2rem;
 }
 
 .form.loading {

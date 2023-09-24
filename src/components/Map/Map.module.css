@@ -24,11 +24,6 @@
   font-size: 1.5rem;
 }
 
-:global(.leaflet-popup .leaflet-popup-content span:first-child) {
-  font-size: 2.5rem;
-  line-height: 1;
-}
-
 :global(.leaflet-popup .leaflet-popup-tip) {
   background-color: var(--color-dark--1);
 }

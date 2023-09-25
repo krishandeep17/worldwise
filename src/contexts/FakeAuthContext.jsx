@@ -30,7 +30,7 @@ function reducer(state, action) {
   }
 }
 
-export function AuthContextProver({ children }) {
+export function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { user, isAuthenticated } = state;

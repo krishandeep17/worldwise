@@ -14,6 +14,7 @@ import Message from "./Message/Message";
 import PageNav from "./PageNav/PageNav";
 import Sidebar from "./Sidebar/Sidebar";
 import Spinner from "./Spinner/Spinner";
+import User from "./User/User";
 
 export {
   AppNav,
@@ -32,4 +33,5 @@ export {
   PageNav,
   Sidebar,
   Spinner,
+  User,
 };

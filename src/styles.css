@@ -28,6 +28,22 @@ html {
   font-size: 62.5%;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-dark--1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 100vw;
+  background: var(--color-brand--2);
+}
+
 body {
   color: var(--color-light--2);
   font-family: "Manrope", sans-serif;
@@ -81,9 +97,11 @@ textarea {
   background-color: var(--color-light--3);
   font-size: 1.6rem;
   transition: all 0.2s;
+  resize: none;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
   background-color: #fff;
 }

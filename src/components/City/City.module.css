@@ -1,24 +1,21 @@
-.city {
+.cityWrapper {
   overflow-y: scroll;
+  width: 100%;
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+}
+
+.cityWrapper::-webkit-scrollbar-track {
+  background-color: var(--color-dark--2);
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 7px;
+}
+
+.city {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 100%;
-  max-height: 70%;
   padding: 2rem 3rem;
-  border-radius: 7px;
-  background-color: var(--color-dark--2);
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.city::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.city {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 .row {

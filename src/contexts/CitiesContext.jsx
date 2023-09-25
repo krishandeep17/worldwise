@@ -18,7 +18,7 @@ export function CitiesProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchCities = async () => {
+    async function fetchCities() {
       try {
         setIsLoading(true);
 
@@ -27,16 +27,16 @@ export function CitiesProvider({ children }) {
 
         setCities(data);
       } catch (error) {
-        alert(error.message);
+        alert("There was an error in loading the cities...");
       } finally {
         setIsLoading(false);
       }
-    };
+    }
 
     fetchCities();
   }, []);
 
-  const fetchCity = async (id) => {
+  async function fetchCity(id) {
     try {
       setIsLoading(true);
 
@@ -45,16 +45,37 @@ export function CitiesProvider({ children }) {
 
       setCurrentCity(data);
     } catch (error) {
-      alert(error.message);
+      alert("There was an error in loading the city...");
     } finally {
       setIsLoading(false);
     }
-  };
+  }
+
+  async function createCity(newCity) {
+    try {
+      setIsLoading(true);
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCity),
+      });
+      const data = await res.json();
+
+      setCities((cities) => [...cities, data]);
+    } catch (error) {
+      alert("There was an error in adding the city...");
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
     // PROVIDE VALUE TO THE CHILD COMPONENTS
     <CitiesContext.Provider
-      value={{ cities, currentCity, fetchCity, isLoading }}
+      value={{ cities, createCity, currentCity, fetchCity, isLoading }}
     >
       {children}
     </CitiesContext.Provider>

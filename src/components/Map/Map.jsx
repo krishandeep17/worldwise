@@ -24,7 +24,7 @@ export default function Map() {
     position: geoLocationPosition,
   } = useGeolocation();
 
-  const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
+  const [mapPosition, setMapPosition] = useState([28.7, 77.1]);
 
   useEffect(() => {
     if (mapLat && mapLng) {

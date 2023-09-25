@@ -17,10 +17,10 @@ export default function City() {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { currentCity, fetchCity, isLoading } = useCitiesContext();
+  const { currentCity, getCity, isLoading } = useCitiesContext();
 
   useEffect(() => {
-    fetchCity(id);
+    getCity(id);
   }, [id]);
 
   const { cityName, countryCode, date, notes } = currentCity;

@@ -72,10 +72,33 @@ export function CitiesProvider({ children }) {
     }
   }
 
+  async function deleteCity(id) {
+    try {
+      setIsLoading(true);
+
+      await fetch(`${url}/${id}`, {
+        method: "DELETE",
+      });
+
+      setCities((cities) => cities.filter((city) => city.id !== id));
+    } catch (error) {
+      alert("There was an error in adding the city...");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     // PROVIDE VALUE TO THE CHILD COMPONENTS
     <CitiesContext.Provider
-      value={{ cities, createCity, currentCity, fetchCity, isLoading }}
+      value={{
+        cities,
+        createCity,
+        currentCity,
+        deleteCity,
+        fetchCity,
+        isLoading,
+      }}
     >
       {children}
     </CitiesContext.Provider>

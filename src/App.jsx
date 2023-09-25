@@ -10,6 +10,7 @@ import {
   PageNotFound,
   Pricing,
   Product,
+  ProtectedRoute,
 } from "./pages";
 
 export default function App() {
@@ -23,7 +24,14 @@ export default function App() {
             <Route path="product" element={<Product />} />
             <Route path="login" element={<Login />} />
 
-            <Route path="app" element={<AppLayout />}>
+            <Route
+              path="app"
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate to="cities" replace />} />
               <Route path="cities" element={<CityList />} />
               <Route path="cities/:id" element={<City />} />

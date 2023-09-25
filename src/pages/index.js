@@ -4,5 +4,14 @@ import Login from "./Login/Login";
 import PageNotFound from "./PageNotFound/PageNotFound";
 import Pricing from "./Product_Pricing/Pricing";
 import Product from "./Product_Pricing/Product";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
-export { AppLayout, Homepage, Login, PageNotFound, Pricing, Product };
+export {
+  AppLayout,
+  Homepage,
+  Login,
+  PageNotFound,
+  Pricing,
+  Product,
+  ProtectedRoute,
+};

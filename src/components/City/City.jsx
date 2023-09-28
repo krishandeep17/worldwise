@@ -21,7 +21,7 @@ export default function City() {
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [getCity, id]);
 
   const { cityName, countryCode, date, notes } = currentCity;
 

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useAuthContext } from "../../contexts/FakeAuthContext";
+import { useAuthContext } from "../../contexts/FakeAuthContext/useAuthContext";
+
+import Button from "../../components/Button";
+import PageNav from "../../components/PageNav";
 import styles from "./Login.module.css";
-import { Button, PageNav } from "../../components";
 
 export default function Login() {
   const { isAuthenticated, login } = useAuthContext();

@@ -1,11 +1,11 @@
-// Uses the same styles as Product
-import styles from "./Product.module.css";
 import cityImg from "../../assets/city.jpg";
-import { PageNav } from "../../components";
+
+import PageNav from "../../components/PageNav";
+import styles from "./Pricing.module.css";
 
 export default function Pricing() {
   return (
-    <main className={styles.product}>
+    <main className={styles.pricing}>
       <PageNav />
       <section>
         <div>

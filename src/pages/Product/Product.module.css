@@ -1,0 +1,30 @@
+.product {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 3.2rem 8rem;
+  background-color: var(--color-dark--1);
+}
+
+.product section {
+  width: clamp(80rem, 80%, 90rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 7rem;
+  margin: 6rem auto;
+}
+
+.product img {
+  width: 100%;
+}
+
+.product h2 {
+  margin-bottom: 3rem;
+  font-size: 4rem;
+  line-height: 1.2;
+}
+
+.product p {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}

@@ -1,6 +1,5 @@
+import Flag from "../Flag";
 import styles from "./CountryItem.module.css";
-
-import { Flag } from "../../components";
 
 export default function CountryItem({ country }) {
   return (

@@ -1,7 +1,6 @@
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useReducer } from "react";
+import { useReducer } from "react";
 
-const AuthContext = createContext();
+import { AuthContext } from "./useAuthContext";
 
 const FAKE_USER = {
   name: "Jack",
@@ -10,10 +9,7 @@ const FAKE_USER = {
   avatar: "https://i.pravatar.cc/100?u=zz",
 };
 
-const initialState = {
-  user: null,
-  isAuthenticated: false,
-};
+const initialState = { user: null, isAuthenticated: false };
 
 function reducer(state, action) {
   switch (action.type) {
@@ -22,7 +18,7 @@ function reducer(state, action) {
     }
 
     case "logout": {
-      return { ...state, user: null, isAuthenticated: false };
+      return initialState;
     }
 
     default:
@@ -30,7 +26,7 @@ function reducer(state, action) {
   }
 }
 
-export function AuthProvider({ children }) {
+export default function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { user, isAuthenticated } = state;
@@ -50,13 +46,4 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuthContext() {
-  const context = useContext(AuthContext);
-
-  if (context === undefined)
-    throw new Error("AuthContext was used outside the AuthProvider");
-
-  return context;
 }

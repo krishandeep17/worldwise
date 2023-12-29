@@ -1,11 +1,11 @@
-.product {
+.pricing {
   min-height: 100vh;
   min-height: 100svh;
   padding: 3.2rem 8rem;
   background-color: var(--color-dark--1);
 }
 
-.product section {
+.pricing section {
   width: clamp(80rem, 80%, 90rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14,21 +14,17 @@
   margin: 6rem auto;
 }
 
-.product img {
+.pricing img {
   width: 100%;
 }
 
-.product h2 {
+.pricing h2 {
   margin-bottom: 3rem;
   font-size: 4rem;
   line-height: 1.2;
 }
 
-.product p {
+.pricing p {
   margin-bottom: 2rem;
   font-size: 1.6rem;
-}
-
-.product section a {
-  margin-top: 2rem;
 }

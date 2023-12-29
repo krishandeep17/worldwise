@@ -1,22 +1,11 @@
-/* eslint-disable react-refresh/only-export-components */
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useReducer,
-} from "react";
+import { useCallback, useEffect, useReducer } from "react";
 
-// CREATE A CONTEXT
-const CitiesContext = createContext();
+import { CitiesContext } from "./useCitiesContext";
 
-let url;
-
-if (import.meta.env.VITE_ENV === "production") {
-  url = import.meta.env.VITE_SERVER;
-} else {
-  url = "http://localhost:8000/cities";
-}
+const URL =
+  import.meta.env.VITE_ENV === "production"
+    ? import.meta.env.VITE_API_URL_PROD
+    : import.meta.env.VITE_API_URL_DEV;
 
 const initialState = {
   cities: [],
@@ -66,7 +55,7 @@ function reducer(state, action) {
   }
 }
 
-export function CitiesProvider({ children }) {
+export default function CitiesProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { cities, currentCity, error, isLoading } = state;
@@ -75,7 +64,7 @@ export function CitiesProvider({ children }) {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(url);
+        const res = await fetch(URL);
         const data = await res.json();
 
         dispatch({ type: "cities/loaded", payload: data });
@@ -96,7 +85,7 @@ export function CitiesProvider({ children }) {
 
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${url}/${id}`);
+        const res = await fetch(`${URL}/${id}`);
         const data = await res.json();
 
         dispatch({ type: "city/loaded", payload: data });
@@ -114,7 +103,7 @@ export function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      const res = await fetch(url, {
+      const res = await fetch(URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -136,7 +125,7 @@ export function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
 
     try {
-      await fetch(`${url}/${id}`, {
+      await fetch(`${URL}/${id}`, {
         method: "DELETE",
       });
 
@@ -150,7 +139,6 @@ export function CitiesProvider({ children }) {
   }
 
   return (
-    // PROVIDE VALUE TO THE CHILD COMPONENTS
     <CitiesContext.Provider
       value={{
         cities,
@@ -165,14 +153,4 @@ export function CitiesProvider({ children }) {
       {children}
     </CitiesContext.Provider>
   );
-}
-
-// CUSTOM HOOK
-export function useCitiesContext() {
-  const context = useContext(CitiesContext);
-
-  if (context === undefined)
-    throw new Error("CitiesContext was used outside the CitiesProvider");
-
-  return context;
 }

@@ -1,6 +1,7 @@
-import styles from "./Product.module.css";
 import sunsetImg from "../../assets/sunset.jpg";
-import { PageNav } from "../../components";
+
+import PageNav from "../../components/PageNav";
+import styles from "./Product.module.css";
 
 export default function Product() {
   return (

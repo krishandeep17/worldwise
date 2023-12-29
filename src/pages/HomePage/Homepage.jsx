@@ -1,9 +1,9 @@
-import styles from "./Homepage.module.css";
-
-import { PageNav } from "../../components";
 import { Link } from "react-router-dom";
 
-export default function Homepage() {
+import PageNav from "../../components/PageNav";
+import styles from "./HomePage.module.css";
+
+export default function HomePage() {
   return (
     <main className={styles.homepage}>
       <PageNav />

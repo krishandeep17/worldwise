@@ -1,16 +1,15 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { AuthProvider } from "./contexts/FakeAuthContext";
-import { CitiesProvider } from "./contexts/CitiesContext";
-import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
-import {
-  City,
-  CityList,
-  CountryList,
-  Form,
-  SpinnerFullPage,
-} from "./components";
+import CitiesProvider from "./contexts/CitiesContext/CitiesProvider";
+import AuthProvider from "./contexts/FakeAuthContext/AuthProvider";
+
+import City from "./components/City";
+import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
+import Form from "./components/Form";
+import SpinnerFullPage from "./components/SpinnerFullPage";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 /*
 dist/assets/index-63ad8513.css    31.79 kB │ gzip:   5.38 kB
@@ -22,12 +21,12 @@ dist/assets/index-fe88c65f.js    527.14 kB │ gzip: 149.38 kB
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
 */
 
-const AppLayout = lazy(() => import("./pages/AppLayout/AppLayout"));
-const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
-const Login = lazy(() => import("./pages/Login/Login"));
-const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
-const Pricing = lazy(() => import("./pages/Product_Pricing/Pricing"));
-const Product = lazy(() => import("./pages/Product_Pricing/Product"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));
+const Homepage = lazy(() => import("./pages/HomePage"));
+const Login = lazy(() => import("./pages/Login"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Product = lazy(() => import("./pages/Product"));
 
 export default function App() {
   return (

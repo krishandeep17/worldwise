@@ -20,7 +20,12 @@ export default function Pricing() {
             voluptatem iste.
           </p>
         </div>
-        <img src={cityImg} alt="overview of a large city with skyscrapers" />
+        <img
+          width="365"
+          height="365"
+          src={cityImg}
+          alt="overview of a large city with skyscrapers"
+        />
       </section>
     </main>
   );

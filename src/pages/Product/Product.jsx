@@ -9,6 +9,8 @@ export default function Product() {
       <PageNav />
       <section>
         <img
+          width="365"
+          height="365"
           src={sunsetImg}
           alt="person with dog overlooking mountain with sunset"
         />

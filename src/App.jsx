@@ -22,7 +22,7 @@ dist/assets/index-fe88c65f.js    527.14 kB │ gzip: 149.38 kB
 */
 
 const AppLayout = lazy(() => import("./pages/AppLayout"));
-const Homepage = lazy(() => import("./pages/HomePage"));
+const HomePage = lazy(() => import("./pages/HomePage"));
 const Login = lazy(() => import("./pages/Login"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const Pricing = lazy(() => import("./pages/Pricing"));
@@ -35,7 +35,7 @@ export default function App() {
         <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
-              <Route index element={<Homepage />} />
+              <Route index element={<HomePage />} />
               <Route path="pricing" element={<Pricing />} />
               <Route path="product" element={<Product />} />
               <Route path="login" element={<Login />} />

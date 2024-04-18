@@ -47,11 +47,11 @@ function reducer(state, action) {
     }
 
     case "rejected": {
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload, isLoading: false };
     }
 
     default:
-      throw new Error(`Unknown action ${action.type}`);
+      throw new Error(`Unknown action: ${action.type}`);
   }
 }
 
@@ -63,12 +63,23 @@ export default function CitiesProvider({ children }) {
   useEffect(() => {
     async function fetchCities() {
       dispatch({ type: "loading" });
+
       try {
         const res = await fetch(URL);
+
+        if (!res.ok) {
+          dispatch({
+            type: "rejected",
+            payload: "There was an error in loading the cities...",
+          });
+
+          return;
+        }
+
         const data = await res.json();
 
         dispatch({ type: "cities/loaded", payload: data });
-      } catch (error) {
+      } catch {
         dispatch({
           type: "rejected",
           payload: "There was an error in loading the cities...",
@@ -80,16 +91,26 @@ export default function CitiesProvider({ children }) {
   }, []);
 
   const getCity = useCallback(
-    async function getCity(id) {
+    async (id) => {
       if (Number(id) === currentCity.id) return;
 
       dispatch({ type: "loading" });
       try {
         const res = await fetch(`${URL}/${id}`);
+
+        if (!res.ok) {
+          dispatch({
+            type: "rejected",
+            payload: "There was an error in loading the city...",
+          });
+
+          return;
+        }
+
         const data = await res.json();
 
         dispatch({ type: "city/loaded", payload: data });
-      } catch (error) {
+      } catch {
         dispatch({
           type: "rejected",
           payload: "There was an error in loading the city...",
@@ -110,10 +131,20 @@ export default function CitiesProvider({ children }) {
         },
         body: JSON.stringify(newCity),
       });
+
+      if (!res.ok) {
+        dispatch({
+          type: "rejected",
+          payload: "There was an error in loading the city...",
+        });
+
+        return;
+      }
+
       const data = await res.json();
 
       dispatch({ type: "city/created", payload: data });
-    } catch (error) {
+    } catch {
       dispatch({
         type: "rejected",
         payload: "There was an error in adding the city...",
@@ -130,7 +161,7 @@ export default function CitiesProvider({ children }) {
       });
 
       dispatch({ type: "city/deleted", payload: id });
-    } catch (error) {
+    } catch {
       dispatch({
         type: "rejected",
         payload: "There was an error in deleting the city...",

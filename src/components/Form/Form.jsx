@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useEffect, useId, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useCitiesContext } from "../../contexts/CitiesContext/useCitiesContext";
@@ -14,7 +12,26 @@ import styles from "./Form.module.css";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
+const options = {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+};
+
+function formatDateToYYYYMMDD(date) {
+  // Extract year, month, and day
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Adding 1 to month because it's zero-based
+  const day = String(date.getDate()).padStart(2, "0");
+
+  // Formatted date string in "YYYY-MM-DD" format
+  const formattedDate = `${year}-${month}-${day}`;
+
+  return formattedDate;
+}
+
 export default function Form() {
+  const id = useId();
   const { createCity, isLoading } = useCitiesContext();
   const [lat, lng] = useUrlPosition();
 
@@ -22,7 +39,7 @@ export default function Form() {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [countryCode, setCountryCode] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(formatDateToYYYYMMDD(new Date()));
   const [geoCodingError, setGeoCodingError] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [notes, setNotes] = useState("");
@@ -93,12 +110,12 @@ export default function Form() {
         onSubmit={handleSubmit}
       >
         <div className={styles.row}>
-          <label htmlFor="cityName">City name</label>
+          <label htmlFor={id + "-cityName"}>City name</label>
           <div className={styles.relative}>
             <input
-              id="cityName"
-              onChange={(e) => setCityName(e.target.value)}
+              id={id + "-cityName"}
               value={cityName}
+              onChange={(e) => setCityName(e.target.value)}
             />
 
             <div className={styles.flag}>
@@ -108,13 +125,12 @@ export default function Form() {
         </div>
 
         <div className={styles.row}>
-          <label htmlFor="date">When did you go to {cityName}?</label>
-          <DatePicker
-            id="date"
-            dateFormat="dd/MM/yyyy"
-            showIcon
-            selected={date}
-            onChange={(date) => setDate(date)}
+          <label htmlFor={id + "-date"}>When did you go to {cityName}?</label>
+          <input
+            type="date"
+            id={id + "-date"}
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
         </div>
 

@@ -6,7 +6,7 @@
 }
 
 .pricing section {
-  width: clamp(80rem, 80%, 90rem);
+  max-width: clamp(80rem, 80%, 90rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -16,7 +16,7 @@
 
 .pricing h2 {
   margin-bottom: 3rem;
-  font-size: 4rem;
+  font-size: clamp(3rem, 2vw + 1rem, 4rem);
   line-height: 1.2;
 }
 

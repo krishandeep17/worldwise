@@ -1,7 +1,7 @@
 .homepage {
-  height: 100vh;
-  height: 100svh;
-  padding: 3.2rem 8rem;
+  --spacing-sm: 3.2rem;
+  --spacing-lg: 8rem;
+  padding: var(--spacing-sm) var(--spacing-lg);
   background-image: linear-gradient(
       rgba(36, 42, 46, 0.8),
       rgba(36, 42, 46, 0.8)
@@ -12,13 +12,20 @@
 }
 
 .homepage section {
+  min-height: calc(
+    100vh - (2 * var(--spacing-sm)) - (2 * var(--spacing-lg)) - 52px
+  );
+  min-height: calc(
+    100svh - (2 * var(--spacing-sm)) - (2 * var(--spacing-lg)) - 52px
+  );
+  text-align: center;
+  margin-block: var(--spacing-lg);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  height: 85%;
-  text-align: center;
 }
 
 .homepage h1 {
@@ -29,7 +36,6 @@
 
 .homepage h2 {
   width: 80%;
-  margin-bottom: 2.5rem;
   color: var(--color-light--1);
   font-size: 1.9rem;
   font-weight: 700;

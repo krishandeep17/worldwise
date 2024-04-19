@@ -1,12 +1,12 @@
 .pageNotFound {
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
   padding: 3.2rem 8rem;
   background-color: var(--color-dark--1);
 }
 
 .pageNotFound section {
-  margin-top: 10rem;
+  margin-block: 10rem;
   text-align: center;
 }
 

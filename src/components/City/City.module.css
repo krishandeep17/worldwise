@@ -1,14 +1,7 @@
 .cityWrapper {
-  overflow-y: scroll;
   width: 100%;
   background-color: var(--color-dark--2);
   border-radius: 7px;
-}
-
-.cityWrapper::-webkit-scrollbar-track {
-  background-color: var(--color-dark--2);
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 7px;
 }
 
 .city {
